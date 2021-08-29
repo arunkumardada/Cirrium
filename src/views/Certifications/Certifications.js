@@ -10,6 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import enviornmentalClaim from "assets/img/environmentalClaim.svg";
 import compliance from "assets/img/compliance.svg";
 import GetAppIcon from "@material-ui/icons/GetApp";
+import Pdf from "assets/sample.pdf";
 
 const useStyles = makeStyles({
   root: {
@@ -41,28 +42,73 @@ export default function Certifications() {
       <React.Fragment>
         <Grid item xs={4}>
           <Paper className={classes.paper}>
-            <b>paper 1</b>
+            <b>Carbon Footprint </b>
             <p>Audit</p>
             <small>
-              <GetAppIcon />
+              <a href={Pdf} rel="noreferrer" target="_blank">
+                <GetAppIcon />
+              </a>
             </small>
           </Paper>
         </Grid>
         <Grid item xs={4}>
           <Paper className={classes.paper}>
-            <b>paper 1</b>
+            <b>Water wastage</b>
             <p>Audit</p>
             <small>
-              <GetAppIcon />
+              <a href={Pdf} rel="noreferrer" target="_blank">
+                <GetAppIcon />
+              </a>
             </small>
           </Paper>
         </Grid>
         <Grid item xs={4}>
           <Paper className={classes.paper}>
-            <b>paper 1</b>
+            <b>Energy Consumed</b>
             <p>Audit</p>
             <small>
-              <GetAppIcon />
+              <a href={Pdf} rel="noreferrer" target="_blank">
+                <GetAppIcon />
+              </a>
+            </small>
+          </Paper>
+        </Grid>
+      </React.Fragment>
+    );
+  }
+  function FormRow1() {
+    return (
+      <React.Fragment>
+        <Grid item xs={4}>
+          <Paper className={classes.paper}>
+            <b>EU Batteries directive</b>
+            <p>Audit</p>
+            <small>
+              <a href={Pdf} rel="noreferrer" target="_blank">
+                <GetAppIcon />
+              </a>
+            </small>
+          </Paper>
+        </Grid>
+        <Grid item xs={4}>
+          <Paper className={classes.paper}>
+            <b>GRS Batterian Foundation</b>
+            <p>Audit</p>
+            <small>
+              <a href={Pdf} rel="noreferrer" target="_blank">
+                <GetAppIcon />
+              </a>
+            </small>
+          </Paper>
+        </Grid>
+        <Grid item xs={4}>
+          <Paper className={classes.paper}>
+            <b>Sustainable Batteries Regulation</b>
+            <p>Audit</p>
+            <small>
+              <a href={Pdf} rel="noreferrer" target="_blank">
+                <GetAppIcon />
+              </a>
             </small>
           </Paper>
         </Grid>
@@ -106,7 +152,7 @@ export default function Certifications() {
           <CardActions>
             <Grid container spacing={1}>
               <Grid container item xs={12} spacing={3}>
-                <FormRow />
+                <FormRow1 />
               </Grid>
             </Grid>
           </CardActions>

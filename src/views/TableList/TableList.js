@@ -8,7 +8,7 @@ import Table from "components/Table/Table.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
-
+import BatteryCharging60Icon from "@material-ui/icons/BatteryCharging60";
 //steps
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -17,7 +17,7 @@ import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import Check from "@material-ui/icons/Check";
-import SettingsIcon from "@material-ui/icons/Settings";
+// import SettingsIcon from "@material-ui/icons/Settings";
 import GroupAddIcon from "@material-ui/icons/GroupAdd";
 import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 // import VideoLabelIcon from '@material-ui/icons/VideoLabel';
@@ -29,6 +29,9 @@ import LinearScaleIcon from "@material-ui/icons/LinearScale";
 import locationIcon from "assets/img/locationIcon.svg";
 import datetimestampIcon from "assets/img/datetimestampIcon.svg";
 import massbalanceIcon from "assets/img/massbalanceIcon.svg";
+
+import token1 from "assets/img/token1.svg";
+import token2 from "assets/img/token2.svg";
 // import countIcon from "assets/img/CountIcon.png";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
@@ -47,6 +50,7 @@ const styles = {
   instructions: {
     marginTop: "8px",
     marginBottom: "8px",
+    marginLeft: "8%",
   },
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
@@ -182,12 +186,14 @@ function ColorlibStepIcon(props) {
   const { active, completed } = props;
 
   const icons = {
-    1: <SettingsIcon />,
+    1: <LocalShippingIcon />,
     2: <CallReceivedIcon />,
     3: <img src={locationIcon} />,
-    4: <LinearScaleIcon />,
+    4: <BatteryCharging60Icon />,
     5: <LocalShippingIcon />,
     6: <GroupAddIcon />,
+    7: <LocalShippingIcon />,
+    8: <LinearScaleIcon />,
   };
 
   return (
@@ -220,7 +226,16 @@ ColorlibStepIcon.propTypes = {
 const useStyles = makeStyles(styles);
 
 function getSteps() {
-  return ["Dismantle", "Receive", "Separate", "Process", "Ship", "Reincarnate"];
+  return [
+    "Transport",
+    "Refinery",
+    "Transport",
+    "Battery Component Productio",
+    "Transport",
+    "Battery Pack",
+    "Transport",
+    "FinalAssembly",
+  ];
 }
 
 function getStepContent(step) {
@@ -235,6 +250,7 @@ function getStepContent(step) {
           <Tooltip title="dd mm yyyy" placement="top-start">
             <img src={datetimestampIcon} />
           </Tooltip>
+          <img src={token1} />
         </>
       );
     case 1:
@@ -247,6 +263,7 @@ function getStepContent(step) {
           <Tooltip title="dd mm yyyy" placement="top-start">
             <img src={datetimestampIcon} />
           </Tooltip>
+          <img src={token2} />
         </>
       );
     case 2:
@@ -263,6 +280,7 @@ function getStepContent(step) {
           <Tooltip title="23.4gm" placement="top-start">
             <img src={massbalanceIcon} />
           </Tooltip>
+          <img src={token2} />
         </>
       );
     case 3:
@@ -275,6 +293,7 @@ function getStepContent(step) {
           <Tooltip title="dd mm yyyy" placement="top-start">
             <img src={datetimestampIcon} />
           </Tooltip>
+          <img src={token1} />
         </>
       );
     case 4:
@@ -287,9 +306,51 @@ function getStepContent(step) {
           <Tooltip title="dd mm yyyy" placement="top-start">
             <img src={datetimestampIcon} />
           </Tooltip>
+          <img src={token1} />
+          <img src={token2} />
         </>
       );
     case 5:
+      return (
+        <>
+          <Tooltip title="Germany" placement="top-start">
+            <img src={locationIcon} />
+          </Tooltip>
+          <br />
+          <Tooltip title="dd mm yyyy" placement="top-start">
+            <img src={datetimestampIcon} />
+          </Tooltip>
+          <img src={token1} />
+        </>
+      );
+    case 6:
+      return (
+        <>
+          <Tooltip title="Germany" placement="top-start">
+            <img src={locationIcon} />
+          </Tooltip>
+          <br />
+          <Tooltip title="dd mm yyyy" placement="top-start">
+            <img src={datetimestampIcon} />
+          </Tooltip>
+          <img src={token2} />
+        </>
+      );
+    case 7:
+      return (
+        <>
+          <Tooltip title="Germany" placement="top-start">
+            <img src={locationIcon} />
+          </Tooltip>
+          <br />
+          <Tooltip title="dd mm yyyy" placement="top-start">
+            <img src={datetimestampIcon} />
+          </Tooltip>
+          <img src={token2} />
+          <img src={token1} />
+        </>
+      );
+    case 8:
       return (
         <>
           <Tooltip title="Germany" placement="top-start">
