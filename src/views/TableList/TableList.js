@@ -10,28 +10,28 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 
 //steps
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Check from '@material-ui/icons/Check';
-import SettingsIcon from '@material-ui/icons/Settings';
-import GroupAddIcon from '@material-ui/icons/GroupAdd';
-import LocalShippingIcon from '@material-ui/icons/LocalShipping';
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import clsx from "clsx";
+import Stepper from "@material-ui/core/Stepper";
+import Step from "@material-ui/core/Step";
+import StepLabel from "@material-ui/core/StepLabel";
+import Check from "@material-ui/icons/Check";
+import SettingsIcon from "@material-ui/icons/Settings";
+import GroupAddIcon from "@material-ui/icons/GroupAdd";
+import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 // import VideoLabelIcon from '@material-ui/icons/VideoLabel';
-import StepConnector from '@material-ui/core/StepConnector';
-import Tooltip from '@material-ui/core/Tooltip';
+import StepConnector from "@material-ui/core/StepConnector";
+import Tooltip from "@material-ui/core/Tooltip";
 
-import CallReceivedIcon from '@material-ui/icons/CallReceived';
-import LinearScaleIcon from '@material-ui/icons/LinearScale';
-import locationIcon from "assets/img/locationIcon.svg"
-import datetimestampIcon from "assets/img/datetimestampIcon.svg"
-import massbalanceIcon from "assets/img/massbalanceIcon.svg"
+import CallReceivedIcon from "@material-ui/icons/CallReceived";
+import LinearScaleIcon from "@material-ui/icons/LinearScale";
+import locationIcon from "assets/img/locationIcon.svg";
+import datetimestampIcon from "assets/img/datetimestampIcon.svg";
+import massbalanceIcon from "assets/img/massbalanceIcon.svg";
 // import countIcon from "assets/img/CountIcon.png";
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 // import AvTimerOutlinedIcon from '@material-ui/icons/AvTimerOutlined';
 // import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
 // import LineWeightIcon from '@material-ui/icons/LineWeight';
@@ -39,10 +39,10 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = {
   root: {
-    width: '100%',
+    width: "100%",
   },
   button: {
-    marginRight: '8px',
+    marginRight: "8px",
   },
   instructions: {
     marginTop: "8px",
@@ -79,22 +79,22 @@ const styles = {
 
 const useQontoStepIconStyles = makeStyles({
   root: {
-    color: '#eaeaf0',
-    display: 'flex',
+    color: "#eaeaf0",
+    display: "flex",
     height: 22,
-    alignItems: 'center',
+    alignItems: "center",
   },
   active: {
-    color: '#784af4',
+    color: "#784af4",
   },
   circle: {
     width: 8,
     height: 8,
-    borderRadius: '50%',
-    backgroundColor: 'currentColor',
+    borderRadius: "50%",
+    backgroundColor: "currentColor",
   },
   completed: {
-    color: '#784af4',
+    color: "#784af4",
     zIndex: 1,
     fontSize: 18,
   },
@@ -110,7 +110,11 @@ function QontoStepIcon(props) {
         [classes.active]: active,
       })}
     >
-      {completed ? <Check className={classes.completed} /> : <div className={classes.circle} />}
+      {completed ? (
+        <Check className={classes.completed} />
+      ) : (
+        <div className={classes.circle} />
+      )}
     </div>
   );
 }
@@ -131,45 +135,45 @@ const ColorlibConnector = withStyles({
     top: 22,
   },
   active: {
-    '& $line': {
+    "& $line": {
       backgroundImage:
-        'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
+        "linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)",
     },
   },
   completed: {
-    '& $line': {
+    "& $line": {
       backgroundImage:
-        'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
+        "linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)",
     },
   },
   line: {
     height: 3,
     border: 0,
-    backgroundColor: '#eaeaf0',
+    backgroundColor: "#eaeaf0",
     borderRadius: 1,
   },
 })(StepConnector);
 
 const useColorlibStepIconStyles = makeStyles({
   root: {
-    backgroundColor: '#ccc',
+    backgroundColor: "#ccc",
     zIndex: 1,
-    color: '#fff',
+    color: "#fff",
     width: 50,
     height: 50,
-    display: 'flex',
-    borderRadius: '50%',
-    justifyContent: 'center',
-    alignItems: 'center',
+    display: "flex",
+    borderRadius: "50%",
+    justifyContent: "center",
+    alignItems: "center",
   },
   active: {
     backgroundImage:
-      'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
-    boxShadow: '0 4px 10px 0 rgba(0,0,0,.25)',
+      "linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)",
+    boxShadow: "0 4px 10px 0 rgba(0,0,0,.25)",
   },
   completed: {
     backgroundImage:
-      'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
+      "linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)",
   },
 });
 
@@ -180,7 +184,7 @@ function ColorlibStepIcon(props) {
   const icons = {
     1: <SettingsIcon />,
     2: <CallReceivedIcon />,
-    3: <img src={locationIcon}  />,
+    3: <img src={locationIcon} />,
     4: <LinearScaleIcon />,
     5: <LocalShippingIcon />,
     6: <GroupAddIcon />,
@@ -215,72 +219,90 @@ ColorlibStepIcon.propTypes = {
 
 const useStyles = makeStyles(styles);
 
-
 function getSteps() {
-  return ['Dismantle', 'Receive', 'Separate', 'Process', 'Ship', 'Reincarnate'];
+  return ["Dismantle", "Receive", "Separate", "Process", "Ship", "Reincarnate"];
 }
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return (<><Tooltip title="Germany" placement="top-start">
-                  <img src={locationIcon}/>
-                </Tooltip>
-                <Tooltip title="dd mm yyyy" placement="top-start">
-                  <img src={datetimestampIcon}/>
-                </Tooltip>
-              </>
-            );
+      return (
+        <>
+          <Tooltip title="Germany" placement="top-start">
+            <img src={locationIcon} />
+          </Tooltip>
+          <br />
+          <Tooltip title="dd mm yyyy" placement="top-start">
+            <img src={datetimestampIcon} />
+          </Tooltip>
+        </>
+      );
     case 1:
-      return (<><Tooltip title="Germany" placement="top-start">
-                  <img src={locationIcon}/>
-                </Tooltip>
-                <Tooltip title="dd mm yyyy" placement="top-start">
-                  <img src={datetimestampIcon}/>
-                </Tooltip>
-              </>
-            );
+      return (
+        <>
+          <Tooltip title="Germany" placement="top-start">
+            <img src={locationIcon} />
+          </Tooltip>
+          <br />
+          <Tooltip title="dd mm yyyy" placement="top-start">
+            <img src={datetimestampIcon} />
+          </Tooltip>
+        </>
+      );
     case 2:
-      return (<><Tooltip title="Germany" placement="top-start">
-                <img src={locationIcon}/>
-              </Tooltip>
-              <Tooltip title="dd mm yyyy" placement="top-start">
-                <img src={datetimestampIcon}/>
-              </Tooltip>
-              <Tooltip title="23.4gm" placement="top-start">
-                <img src={massbalanceIcon}/>
-              </Tooltip>
-            </>
-          );
+      return (
+        <>
+          <Tooltip title="Germany" placement="top-start">
+            <img src={locationIcon} />
+          </Tooltip>
+          <br />
+          <Tooltip title="dd mm yyyy" placement="top-start">
+            <img src={datetimestampIcon} />
+          </Tooltip>
+          <br />
+          <Tooltip title="23.4gm" placement="top-start">
+            <img src={massbalanceIcon} />
+          </Tooltip>
+        </>
+      );
     case 3:
-      return (<><Tooltip title="Germany" placement="top-start">
-                  <img src={locationIcon}/>
-                </Tooltip>
-                <Tooltip title="dd mm yyyy" placement="top-start">
-                  <img src={datetimestampIcon}/>
-                </Tooltip>
-              </>
-            );
+      return (
+        <>
+          <Tooltip title="Germany" placement="top-start">
+            <img src={locationIcon} />
+          </Tooltip>
+          <br />
+          <Tooltip title="dd mm yyyy" placement="top-start">
+            <img src={datetimestampIcon} />
+          </Tooltip>
+        </>
+      );
     case 4:
-      return (<><Tooltip title="Germany" placement="top-start">
-                    <img src={locationIcon}/>
-                  </Tooltip>
-                  <Tooltip title="dd mm yyyy" placement="top-start">
-                    <img src={datetimestampIcon}/>
-                  </Tooltip>
-                </>
-              );
+      return (
+        <>
+          <Tooltip title="Germany" placement="top-start">
+            <img src={locationIcon} />
+          </Tooltip>
+          <br />
+          <Tooltip title="dd mm yyyy" placement="top-start">
+            <img src={datetimestampIcon} />
+          </Tooltip>
+        </>
+      );
     case 5:
-      return (<><Tooltip title="Germany" placement="top-start">
-                    <img src={locationIcon}/>
-                </Tooltip>
-                <Tooltip title="dd mm yyyy" placement="top-start">
-                  <img src={datetimestampIcon}/>
-                </Tooltip>
-              </>
-            );
+      return (
+        <>
+          <Tooltip title="Germany" placement="top-start">
+            <img src={locationIcon} />
+          </Tooltip>
+          <br />
+          <Tooltip title="dd mm yyyy" placement="top-start">
+            <img src={datetimestampIcon} />
+          </Tooltip>
+        </>
+      );
     default:
-      return 'Unknown step';
+      return "Unknown step";
   }
 }
 
@@ -304,67 +326,83 @@ export default function TableList() {
   return (
     <GridContainer>
       <GridItem xs={12} sm={12} md={12}>
-      <Card>
+        <Card>
           <CardHeader color="primary">
-            <h4 className={classes.cardTitleWhite}>WorkFlow Traceability Process</h4>
-            <p className={classes.cardCategoryWhite}>
-              Order Details Section
-            </p>
+            <h4 className={classes.cardTitleWhite}>
+              WorkFlow Traceability Process
+            </h4>
+            <p className={classes.cardCategoryWhite}>Order Details Section</p>
           </CardHeader>
           <CardBody>
             <GridItem xs={12} sm={12} md={12}>
-          <div className={classes.root}>
-            <Stepper alternativeLabel activeStep={activeStep} connector={<ColorlibConnector />}>
-              {steps.map((label) => (
-                <Step key={label}>
-                  <StepLabel StepIconComponent={ColorlibStepIcon}>{label}</StepLabel>
-                </Step>
-              ))}
-            </Stepper>
-            <div>
-              {activeStep === steps.length ? (
+              <div className={classes.root}>
+                <Stepper
+                  alternativeLabel
+                  activeStep={activeStep}
+                  connector={<ColorlibConnector />}
+                >
+                  {steps.map((label) => (
+                    <Step key={label}>
+                      <StepLabel StepIconComponent={ColorlibStepIcon}>
+                        {label}
+                      </StepLabel>
+                    </Step>
+                  ))}
+                </Stepper>
                 <div>
-                  <Typography className={classes.instructions}>
-                    All steps completed - you&apos;re finished
-                  </Typography>
-                  <Button onClick={handleReset} className={classes.button}>
-                    Reset
-                  </Button>
+                  {activeStep === steps.length ? (
+                    <div>
+                      <Typography className={classes.instructions}>
+                        All steps completed - you&apos;re finished
+                      </Typography>
+                      <Button onClick={handleReset} className={classes.button}>
+                        Reset
+                      </Button>
+                    </div>
+                  ) : (
+                    <div>
+                      <Typography className={classes.instructions}>
+                        {getStepContent(activeStep)}
+                      </Typography>
+                      <div>
+                        <Button
+                          disabled={activeStep === 0}
+                          onClick={handleBack}
+                          className={classes.button}
+                        >
+                          Back
+                        </Button>
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          onClick={handleNext}
+                          className={classes.button}
+                        >
+                          {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                        </Button>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              ) : (
-                <div>
-                  <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-                  <div>
-                    <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
-                      Back
-                    </Button>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={handleNext}
-                      className={classes.button}
-                    >
-                      {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                    </Button>
-                  </div>
-                </div>
-              )}
-            </div>
-        </div>
-      </GridItem>
+              </div>
+            </GridItem>
           </CardBody>
-      </Card>
+        </Card>
         <Card>
           <CardHeader color="primary">
             <h4 className={classes.cardTitleWhite}>Order Details</h4>
-            <p className={classes.cardCategoryWhite}>
-              Order Details Section
-            </p>
+            <p className={classes.cardCategoryWhite}>Order Details Section</p>
           </CardHeader>
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["Order", "Order ID", "Customer", "Delivery Status", "Invoice Amount"]}
+              tableHead={[
+                "Order",
+                "Order ID",
+                "Customer",
+                "Delivery Status",
+                "Invoice Amount",
+              ]}
               tableData={[
                 ["Lithium", "19383", "Customer 1", "Delivered", "234€"],
                 ["Manganese", "392722", "Customer 2", "Pending", "523€"],
@@ -377,7 +415,6 @@ export default function TableList() {
           </CardBody>
         </Card>
       </GridItem>
-
     </GridContainer>
   );
 }

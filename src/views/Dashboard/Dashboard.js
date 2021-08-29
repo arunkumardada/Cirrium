@@ -28,14 +28,13 @@ import CardFooter from "components/Card/CardFooter.js";
 
 // import { bugs, datetimestamps } from "variables/general.js";
 
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import PropTypes from 'prop-types';
-import SwipeableViews from 'react-swipeable-views';
-
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import PropTypes from "prop-types";
+import SwipeableViews from "react-swipeable-views";
 
 import {
   dailySalesChart,
@@ -45,12 +44,49 @@ import {
 
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
-import Table from '@material-ui/core/Table';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import Table from "@material-ui/core/Table";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+
+import { PieChart, Pie, Cell } from "recharts";
+
+const data = [
+  { name: "Group A", value: 400 },
+  { name: "Group B", value: 300 },
+  { name: "Group C", value: 300 },
+  { name: "Group D", value: 200 },
+];
+
+const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+
+const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({
+  cx,
+  cy,
+  midAngle,
+  innerRadius,
+  outerRadius,
+  percent,
+}) => {
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+  return (
+    <text
+      x={x}
+      y={y}
+      fill="white"
+      textAnchor={x > cx ? "start" : "end"}
+      dominantBaseline="central"
+    >
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
 
 const useStyles = makeStyles(styles);
 
@@ -82,7 +118,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
+    "aria-controls": `full-width-tabpanel-${index}`,
   };
 }
 
@@ -108,7 +144,6 @@ export default function Dashboard() {
     setValue(index);
   };
 
-
   return (
     <div>
       <GridContainer>
@@ -126,9 +161,7 @@ export default function Dashboard() {
                 {/* <Danger>
                   <Warning />
                 </Danger> */}
-                <a>
-                  Customer Count
-                </a>
+                <a>Customer Count</a>
               </div>
             </CardFooter>
           </Card>
@@ -289,54 +322,70 @@ export default function Dashboard() {
               </Tabs>
             </AppBar>
             <SwipeableViews
-              axis={themeTabs.direction === 'rtl' ? 'x-reverse' : 'x'}
+              axis={themeTabs.direction === "rtl" ? "x-reverse" : "x"}
               index={value}
               onChangeIndex={handleChangeIndex}
             >
               <TabPanel value={value} index={0} dir={themeTabs.direction}>
-              <TableContainer component={Paper}>
-                <Table className={classes.table} aria-label="simple table">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>Source of Energy</TableCell>
-                      <TableCell align="right">Non Renewable</TableCell>
-                      <TableCell align="right">Renewable</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>Unit Of Measurement</TableCell>
-                      <TableCell align="right">KWh</TableCell>
-                      <TableCell align="right">KWh</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>Metric</TableCell>
-                      <TableCell align="right">16.4</TableCell>
-                      <TableCell align="right">66.37</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>Percentage of Energy Used</TableCell>
-                      <TableCell align="right">20%</TableCell>
-                      <TableCell align="right">65%</TableCell>
-                    </TableRow>
-                  </TableHead>
-                </Table>
-              </TableContainer>
+                <TableContainer component={Paper}>
+                  <Table className={classes.table} aria-label="simple table">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Source of Energy</TableCell>
+                        <TableCell align="right">Non Renewable</TableCell>
+                        <TableCell align="right">Renewable</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Unit Of Measurement</TableCell>
+                        <TableCell align="right">KWh</TableCell>
+                        <TableCell align="right">KWh</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Metric</TableCell>
+                        <TableCell align="right">16.4</TableCell>
+                        <TableCell align="right">66.37</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Percentage of Energy Used</TableCell>
+                        <TableCell align="right">20%</TableCell>
+                        <TableCell align="right">65%</TableCell>
+                      </TableRow>
+                    </TableHead>
+                  </Table>
+                </TableContainer>
               </TabPanel>
               <TabPanel value={value} index={1} dir={themeTabs.direction}>
-                
+                <PieChart width={400} height={400}>
+                  <Pie
+                    data={data}
+                    cx="50%"
+                    cy="50%"
+                    labelLine={false}
+                    label={renderCustomizedLabel}
+                    outerRadius={80}
+                    fill="#8884d8"
+                    dataKey="value"
+                  >
+                    {data.map((entry, index) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={COLORS[index % COLORS.length]}
+                      />
+                    ))}
+                  </Pie>
+                </PieChart>
               </TabPanel>
             </SwipeableViews>
           </div>
         </GridItem>
         <GridItem xs={12} sm={12} md={6}>
-          <Card>
-           
-          </Card>
+          <Card></Card>
         </GridItem>
       </GridContainer>
     </div>

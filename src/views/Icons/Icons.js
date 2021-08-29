@@ -37,153 +37,97 @@ import {
 const data = [
   {
     name: "Li",
-    uv: 50,
-    pv: 80,
+    uv: 10,
+    pv: 15.24,
     amt: 14,
     cnt: 49,
-    fill: "red",
+    fill: "#e05482",
   },
   {
     name: "Co",
-    uv: 50,
-    pv: 96,
+    uv: 10,
+    pv: 7.26,
     amt: 15,
     cnt: 59,
-    fill: "red",
+    fill: "sandybrown",
   },
   {
     name: "Mn",
-    uv: 50,
-    pv: 10,
+    uv: 10,
+    pv: 2.6,
     amt: 98,
     cnt: 35,
-    fill: "green",
+    fill: "#4da54d",
   },
   {
     name: "Ni",
-    uv: 50,
-    pv: 10,
+    uv: 10,
+    pv: 2.35,
     amt: 12,
     cnt: 48,
-    fill: "green",
+    fill: "#4da54d",
   },
   {
     name: "Gr",
-    uv: 50,
-    pv: 11,
+    uv: 10,
+    pv: 3.435,
     amt: 11,
     cnt: 46,
-    fill: "green",
-  },
-  {
-    name: "Mg",
-    uv: 50,
-    pv: 68,
-    amt: 17,
-    cnt: 38,
-    fill: "yellow",
+    fill: "#4da54d",
   },
 ];
 
 const data1 = [
   {
     name: "Li",
-    uv: 30,
-    pv: 60,
+    uv: 10,
+    pv: 3,
     amt: 14,
     cnt: 49,
-    fill: "red",
+    fill: "#4da54d",
   },
   {
     name: "Co",
-    uv: 30,
-    pv: 46,
+    uv: 10,
+    pv: 7,
     amt: 15,
     cnt: 59,
-    fill: "red",
+    fill: "sandybrown",
   },
   {
     name: "Mn",
-    uv: 30,
-    pv: 22,
+    uv: 10,
+    pv: 6.8,
     amt: 98,
     cnt: 35,
-    fill: "yellow",
-  },
-  {
-    name: "Ni",
-    uv: 30,
-    pv: 17,
-    amt: 12,
-    cnt: 48,
-    fill: "green",
-  },
-  {
-    name: "Gr",
-    uv: 30,
-    pv: 11,
-    amt: 11,
-    cnt: 46,
-    fill: "green",
-  },
-  {
-    name: "Mg",
-    uv: 30,
-    pv: 28,
-    amt: 17,
-    cnt: 28,
-    fill: "yellow",
+    fill: "sandybrown",
   },
 ];
 
 const data2 = [
   {
     name: "Li",
-    uv: 15,
-    pv: 40,
+    uv: 10,
+    pv: 8,
     amt: 14,
-    cnt: 29,
-    fill: "red",
+    cnt: 49,
+    fill: "#4da54d",
   },
   {
     name: "Co",
-    uv: 15,
-    pv: 66,
+    uv: 10,
+    pv: 12.4,
     amt: 15,
-    cnt: 29,
-    fill: "red",
+    cnt: 59,
+    fill: "#e05482",
   },
   {
     name: "Mn",
-    uv: 15,
-    pv: 15,
-    amt: 68,
-    cnt: 25,
-    fill: "green",
-  },
-  {
-    name: "Ni",
-    uv: 15,
-    pv: 20,
-    amt: 22,
-    cnt: 28,
-    fill: "green",
-  },
-  {
-    name: "Gr",
-    uv: 15,
-    pv: 21,
-    amt: 21,
-    cnt: 36,
-    fill: "green",
-  },
-  {
-    name: "Mg",
-    uv: 15,
-    pv: 48,
-    amt: 27,
-    cnt: 28,
-    fill: "yellow",
+    uv: 10,
+    pv: 7,
+    amt: 98,
+    cnt: 35,
+    fill: "sandybrown",
   },
 ];
 
@@ -218,7 +162,7 @@ export default function Icons() {
   const { a, b, c, d, e, f } = state;
   return (
     <>
-      <h5>Failed Material Inspection By Region and Customer (%)</h5>
+      <b>Failed Material Inspection By Region and Customer (%)</b>
       <GridContainer>
         <GridItem xs={12} md={4}>
           <b>West Midlands </b>
@@ -243,7 +187,7 @@ export default function Icons() {
           </ComposedChart>
         </GridItem>
         <GridItem xs={12} md={4}>
-          <b>London </b>
+          <strong>London </strong>
           <ComposedChart
             width={400}
             height={300}
