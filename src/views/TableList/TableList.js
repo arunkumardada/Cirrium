@@ -19,11 +19,23 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Check from '@material-ui/icons/Check';
 import SettingsIcon from '@material-ui/icons/Settings';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
-import VideoLabelIcon from '@material-ui/icons/VideoLabel';
+import LocalShippingIcon from '@material-ui/icons/LocalShipping';
+// import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import StepConnector from '@material-ui/core/StepConnector';
+import Tooltip from '@material-ui/core/Tooltip';
+
+import CallReceivedIcon from '@material-ui/icons/CallReceived';
+import LinearScaleIcon from '@material-ui/icons/LinearScale';
+import locationIcon from "assets/img/locationIcon.svg"
+import datetimestampIcon from "assets/img/datetimestampIcon.svg"
+import massbalanceIcon from "assets/img/massbalanceIcon.svg"
 // import countIcon from "assets/img/CountIcon.png";
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+// import AvTimerOutlinedIcon from '@material-ui/icons/AvTimerOutlined';
+// import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
+// import LineWeightIcon from '@material-ui/icons/LineWeight';
+// import CropFreeIcon from '@material-ui/icons/CropFree';
 
 const styles = {
   root: {
@@ -167,11 +179,11 @@ function ColorlibStepIcon(props) {
 
   const icons = {
     1: <SettingsIcon />,
-    2: <GroupAddIcon />,
-    3: <VideoLabelIcon />,
-    4: <SettingsIcon />,
-    5: <GroupAddIcon />,
-    6: <VideoLabelIcon />,
+    2: <CallReceivedIcon />,
+    3: <img src={locationIcon}  />,
+    4: <LinearScaleIcon />,
+    5: <LocalShippingIcon />,
+    6: <GroupAddIcon />,
   };
 
   return (
@@ -211,17 +223,62 @@ function getSteps() {
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return 'Description1';
+      return (<><Tooltip title="Germany" placement="top-start">
+                  <img src={locationIcon}/>
+                </Tooltip>
+                <Tooltip title="dd mm yyyy" placement="top-start">
+                  <img src={datetimestampIcon}/>
+                </Tooltip>
+              </>
+            );
     case 1:
-      return 'Description2';
+      return (<><Tooltip title="Germany" placement="top-start">
+                  <img src={locationIcon}/>
+                </Tooltip>
+                <Tooltip title="dd mm yyyy" placement="top-start">
+                  <img src={datetimestampIcon}/>
+                </Tooltip>
+              </>
+            );
     case 2:
-      return 'Description3';
+      return (<><Tooltip title="Germany" placement="top-start">
+                <img src={locationIcon}/>
+              </Tooltip>
+              <Tooltip title="dd mm yyyy" placement="top-start">
+                <img src={datetimestampIcon}/>
+              </Tooltip>
+              <Tooltip title="23.4gm" placement="top-start">
+                <img src={massbalanceIcon}/>
+              </Tooltip>
+            </>
+          );
     case 3:
-      return 'Description4';
+      return (<><Tooltip title="Germany" placement="top-start">
+                  <img src={locationIcon}/>
+                </Tooltip>
+                <Tooltip title="dd mm yyyy" placement="top-start">
+                  <img src={datetimestampIcon}/>
+                </Tooltip>
+              </>
+            );
     case 4:
-      return 'Description5';
+      return (<><Tooltip title="Germany" placement="top-start">
+                    <img src={locationIcon}/>
+                  </Tooltip>
+                  <Tooltip title="dd mm yyyy" placement="top-start">
+                    <img src={datetimestampIcon}/>
+                  </Tooltip>
+                </>
+              );
     case 5:
-      return 'Description6';
+      return (<><Tooltip title="Germany" placement="top-start">
+                    <img src={locationIcon}/>
+                </Tooltip>
+                <Tooltip title="dd mm yyyy" placement="top-start">
+                  <img src={datetimestampIcon}/>
+                </Tooltip>
+              </>
+            );
     default:
       return 'Unknown step';
   }
@@ -247,29 +304,6 @@ export default function TableList() {
   return (
     <GridContainer>
       <GridItem xs={12} sm={12} md={12}>
-        <Card>
-          <CardHeader color="primary">
-            <h4 className={classes.cardTitleWhite}>Order Details</h4>
-            <p className={classes.cardCategoryWhite}>
-              Order Details Section
-            </p>
-          </CardHeader>
-          <CardBody>
-            <Table
-              tableHeaderColor="primary"
-              tableHead={["Order", "Order ID", "Customer", "Delivery Status", "Invoice Amount"]}
-              tableData={[
-                ["Lithium", "19383", "Customer 1", "Delivered", "234€"],
-                ["Manganese", "392722", "Customer 2", "Pending", "523€"],
-                ["Cobolt", "86582", "Customer 3", "Delivered", "284€"],
-                ["Lithium", "2910283", "Customer 4", "Pending", "678€"],
-                ["Nickel", "383733", "Customer 5", "Cancelled", "846€"],
-                ["Copper", "938372", "Customer 6", "Delivered", "435€"],
-              ]}
-            />
-          </CardBody>
-        </Card>
-      </GridItem>
       <Card>
           <CardHeader color="primary">
             <h4 className={classes.cardTitleWhite}>WorkFlow Traceability Process</h4>
@@ -320,6 +354,30 @@ export default function TableList() {
       </GridItem>
           </CardBody>
       </Card>
+        <Card>
+          <CardHeader color="primary">
+            <h4 className={classes.cardTitleWhite}>Order Details</h4>
+            <p className={classes.cardCategoryWhite}>
+              Order Details Section
+            </p>
+          </CardHeader>
+          <CardBody>
+            <Table
+              tableHeaderColor="primary"
+              tableHead={["Order", "Order ID", "Customer", "Delivery Status", "Invoice Amount"]}
+              tableData={[
+                ["Lithium", "19383", "Customer 1", "Delivered", "234€"],
+                ["Manganese", "392722", "Customer 2", "Pending", "523€"],
+                ["Cobolt", "86582", "Customer 3", "Delivered", "284€"],
+                ["Lithium", "2910283", "Customer 4", "Pending", "678€"],
+                ["Nickel", "383733", "Customer 5", "Cancelled", "846€"],
+                ["Copper", "938372", "Customer 6", "Delivered", "435€"],
+              ]}
+            />
+          </CardBody>
+        </Card>
+      </GridItem>
+
     </GridContainer>
   );
 }

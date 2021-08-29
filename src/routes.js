@@ -24,6 +24,7 @@ import Notifications from "@material-ui/icons/Notifications";
 import DashboardPage from "views/Dashboard/Dashboard.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
 import TableList from "views/TableList/TableList.js";
+import Certifications from "views/Certifications/Certifications.js";
 import Maps from "views/Maps/Maps.js";
 import NotificationsPage from "views/Notifications/Notifications.js";
 // core components/views for RTL layout
@@ -61,6 +62,14 @@ const dashboardRoutes = [
     rtlName: "قائمة الجدول",
     icon: "content_paste",
     component: Icons,
+    layout: "/admin",
+  },
+  {
+    path: "/certifications",
+    name: "Certifications",
+    rtlName: "قائمة الجدول",
+    icon: "content_paste",
+    component: Certifications,
     layout: "/admin",
   },
   {

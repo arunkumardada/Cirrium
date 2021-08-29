@@ -2,7 +2,7 @@ import React from "react";
 // react plugin for creating charts
 import ChartistGraph from "react-chartist";
 // @material-ui/core
-import { makeStyles, withStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import Store from "@material-ui/icons/Store";
@@ -36,8 +36,6 @@ import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 
-import LinearProgress from '@material-ui/core/LinearProgress';
-
 
 import {
   dailySalesChart,
@@ -46,34 +44,18 @@ import {
 } from "variables/charts.js";
 
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
-import { Tooltip } from "@material-ui/core";
+
+import Table from '@material-ui/core/Table';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles(styles);
 
-
-const BorderLinearProgress = withStyles((theme) => ({
-  root: {
-    height: 10,
-    borderRadius: 5,
-  },
-  colorPrimary: {
-    backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
-  },
-  bar: {
-    borderRadius: 5,
-    backgroundColor: '#07acc1',
-  },
-}))(LinearProgress);
-
-const useStylesCustomerFeedBack = makeStyles({
-  root: {
-    flexGrow: 1,
-  },
-});
-
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
   return (
     <div
       role="tabpanel"
@@ -113,7 +95,6 @@ const useStylesTabs = makeStyles((theme) => ({
 
 export default function Dashboard() {
   const classes = useStyles();
-  const classesForCustomerFeedBack = useStylesCustomerFeedBack();
 
   const classesTabs = useStylesTabs();
   const themeTabs = useTheme();
@@ -145,7 +126,7 @@ export default function Dashboard() {
                 {/* <Danger>
                   <Warning />
                 </Danger> */}
-                <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                <a>
                   Customer Count
                 </a>
               </div>
@@ -313,39 +294,48 @@ export default function Dashboard() {
               onChangeIndex={handleChangeIndex}
             >
               <TabPanel value={value} index={0} dir={themeTabs.direction}>
-                Item One
+              <TableContainer component={Paper}>
+                <Table className={classes.table} aria-label="simple table">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Source of Energy</TableCell>
+                      <TableCell align="right">Non Renewable</TableCell>
+                      <TableCell align="right">Renewable</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Unit Of Measurement</TableCell>
+                      <TableCell align="right">KWh</TableCell>
+                      <TableCell align="right">KWh</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Metric</TableCell>
+                      <TableCell align="right">16.4</TableCell>
+                      <TableCell align="right">66.37</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Percentage of Energy Used</TableCell>
+                      <TableCell align="right">20%</TableCell>
+                      <TableCell align="right">65%</TableCell>
+                    </TableRow>
+                  </TableHead>
+                </Table>
+              </TableContainer>
               </TabPanel>
               <TabPanel value={value} index={1} dir={themeTabs.direction}>
-                Item Two
+                
               </TabPanel>
             </SwipeableViews>
           </div>
         </GridItem>
         <GridItem xs={12} sm={12} md={6}>
           <Card>
-            <CardHeader color="warning">
-              <h4 className={classes.cardTitleWhite}>
-                Overall Customer Feedback
-              </h4>
-              <p className={classes.cardCategoryWhite}>
-                Based on Last Quarter
-              </p>
-            </CardHeader>
-            <CardBody>
-              <div className={classesForCustomerFeedBack.root}>
-                <br />
-                <Tooltip title="90" placement="top"><BorderLinearProgress variant="determinate" value={90} /></Tooltip>
-
-                <br />
-                <Tooltip title="80" placement="top"><BorderLinearProgress variant="determinate" value={80} /></Tooltip>
-                <br />
-                <Tooltip title="95" placement="top"><BorderLinearProgress variant="determinate" value={95} /></Tooltip>
-                <br />
-                <Tooltip title="99" placement="top"><BorderLinearProgress variant="determinate" value={99} /></Tooltip>
-                <br />
-                <Tooltip title="100" placement="top"><BorderLinearProgress variant="determinate" value={100} /></Tooltip>
-              </div>
-            </CardBody>
+           
           </Card>
         </GridItem>
       </GridContainer>

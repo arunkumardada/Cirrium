@@ -131,16 +131,16 @@ export default function Icons() {
             <FormLabel component="legend">CUSTOMER_NAME</FormLabel>
             <FormGroup>
               <FormControlLabel
-              control={<Checkbox checked={a} onChange={handleChange} name="gilad" />}
+              control={<Checkbox checked={a} onChange={handleChange} name="a" />}
               label="Customer_1"
               />
               <FormControlLabel
-              control={<Checkbox checked={b} onChange={handleChange} name="jason" />}
+              control={<Checkbox checked={b} onChange={handleChange} name="b" />}
               label="Customer_2"
               />
               <FormControlLabel
-              control={<Checkbox checked={c} onChange={handleChange} name="antoine" />}
-              label="Customer_3"
+              control={<Checkbox checked={c} onChange={handleChange} name="c" />}
+              label="Customer_3"cardTitle
               />
             </FormGroup>
           </FormControl>
@@ -148,15 +148,15 @@ export default function Icons() {
           < FormLabel component="legend">ASSETS</FormLabel>
             <FormGroup>
               <FormControlLabel
-              control={<Checkbox checked={d} onChange={handleChange} name="gilad" />}
+              control={<Checkbox checked={d} onChange={handleChange} name="d" />}
               label="ASSET1"
               />
               <FormControlLabel
-              control={<Checkbox checked={e} onChange={handleChange} name="jason" />}
+              control={<Checkbox checked={e} onChange={handleChange} name="e" />}
               label="ASSET2"
               />
               <FormControlLabel
-              control={<Checkbox checked={f} onChange={handleChange} name="antoine" />}
+              control={<Checkbox checked={f} onChange={handleChange} name="f" />}
               label="ASSET3"
               />
             </FormGroup>
